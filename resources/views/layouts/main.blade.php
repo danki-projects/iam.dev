@@ -23,7 +23,7 @@
 
 <div class="full-height">
     @include('layouts.main.header')
-    <div class="container my-5">
+    <div class="container my-5 bg-secondary text-light rounded shadow py-5 px-4">
         @yield('content')
     </div>
     @include('layouts.main.footer')
