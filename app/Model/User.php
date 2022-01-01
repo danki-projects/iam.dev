@@ -10,7 +10,9 @@ use Illuminate\Notifications\Notifiable;
 /**
  * Class User
  * @property string $first_name
+ * @property string $last_name
  * @property string $type
+ * @property string $full_name
  * @package App
  */
 class User extends Authenticatable
@@ -54,5 +56,8 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 }

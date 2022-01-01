@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Project::class, function (Faker $faker) {
     return [
-        'name' => $faker->words(3, true),
+        'name' => $faker->jobTitle,
         'description' => $faker->text(160),
         'content' => $faker->paragraphs(33, true),
         'company_name' => $faker->company,

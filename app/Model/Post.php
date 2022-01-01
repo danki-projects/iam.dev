@@ -36,9 +36,19 @@ class Post extends Model
         return $this->belongsToMany(Image::class);
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = $value;
         $this->attributes['slug'] = Str::slug($value);
+    }
+
+    public function getCategorySlugAttribute()
+    {
+        return $this->category()->first()->slug;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\repositories\PostsRepository;
+use App\repositories\ProjectsRepository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,14 +18,15 @@ class HomeController extends Controller
         $this->middleware('auth')->except('index');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+    public function index(ProjectsRepository $projectsRepository, PostsRepository $postsRepository)
     {
-        return view('home');
+        $projects = $projectsRepository->getLatestActive();
+        $posts = $postsRepository->getByViews();
+
+        return view('home', [
+            'projects' => $projects,
+            'posts' => $posts
+        ]);
     }
 
     public function dashboard()

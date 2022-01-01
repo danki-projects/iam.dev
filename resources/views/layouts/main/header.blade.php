@@ -19,15 +19,21 @@
                             {{ __('app.projects') }}
                         </a>
                     </li>
-                    <li class="nav-item dropdown {{ isActive('blog') }}">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ __('app.categories') }}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('blog.categories', ['introduction-to-laravel']) }}">category</a>
-                        </div>
-                    </li>
+                    @if ($menu->count())
+                        <li class="nav-item dropdown {{ isActive('blog') }}">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ __('app.blog') }}
+                            </a>
+                            <div class="dropdown-menu py-0 rounded-0" aria-labelledby="navbarDropdown">
+                                @foreach($menu as $item)
+                                    <a class="dropdown-item" href="{{ route('blog.categories', $item->slug) }}">
+                                        {{ $item->name }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        </li>
+                    @endif
                     <li class="nav-item {{ isActive('contact') }}">
                         <a class="nav-link" href="{{ route('contact') }}">
                             {{ __('app.contact') }}

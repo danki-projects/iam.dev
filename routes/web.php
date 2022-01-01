@@ -14,8 +14,12 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/projects', 'ProjectContoller@index')->name('project');
-Route::get('/contact', 'ContactContoller@index')->name('contact');
+
+Route::get('/projects', 'ProjectController@index')->name('project');
+Route::get('/projects/{project_slug}', 'ProjectController@show')->name('project.show');
+
+Route::get('/contact', 'ContactController@index')->name('contact');
+Route::post('/contact', 'ContactController@store')->name('contact.store');
 
 Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 

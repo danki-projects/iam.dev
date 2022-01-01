@@ -22,7 +22,7 @@ if (!function_exists('messages')) {
      *
      * @param string $title
      * @param string $message
-     * @param string $type
+     * @param string $type['info', 'primary', 'success', 'danger', 'warning']
      * @param int $time
      */
     function messages(string $title, string $message, string $type = 'info', int $time = 4000)

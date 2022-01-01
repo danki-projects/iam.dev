@@ -23,12 +23,14 @@
 
 <div class="full-height">
     @include('layouts.main.header')
-    <div class="container my-5 bg-secondary text-light rounded shadow py-5 px-4">
+    <div class="container my-5 bg-secondary text-light rounded shadow py-5 px-4 mb-5">
         @yield('content')
     </div>
     @include('layouts.main.footer')
 </div>
 
+
+@include('partials.session-message')
 @hasSection('js')
     @yield('js')
 @endif

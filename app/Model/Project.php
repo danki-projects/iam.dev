@@ -6,9 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
+/**
+ * @property Image $images
+ * @method static where(string $string, bool $true)
+ */
 class Project extends Model
 {
     use SoftDeletes;
+
+    protected $perPage = 5;
 
     protected $casts = [
         'id' => 'int',
@@ -30,6 +36,11 @@ class Project extends Model
         'update_at',
         'deleted_at',
     ];
+
+    public static function scopeActive()
+    {
+        return self::where('status', true);
+    }
 
     public function images()
     {

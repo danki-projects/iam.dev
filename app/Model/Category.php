@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
+/**
+ * @property string $slug
+ * @method static where(string $string, string $slug)
+ */
 class Category extends Model
 {
     use SoftDeletes;
@@ -27,6 +31,16 @@ class Category extends Model
         'update_at',
         'deleted_at',
     ];
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', true);
+    }
+
+    public function getActive()
+    {
+        return $this->active()->get();
+    }
 
     public function posts()
     {

@@ -12,12 +12,21 @@ return [
     'button_reset_password' => 'Cadastrar nova senha',
     'button_register' => 'Cadastrar',
     'button_search' => 'Pesquisar',
+    'button_send_contact' => 'Enviar',
+
+    'button_more_detail' => 'Mais detalhes',
 
     'placeholder' => [
-      'search' => 'Digite algo...'
+        'search' => 'Digite algo...',
+        'contact_email' => 'Digite seu email',
+        'contact_name' => 'Digite seu nome',
+        'contact_message' => 'Digite uma mensagem',
     ],
 
     'first_name' => 'Nome',
-    'last_name' => 'Sobrenome'
+    'last_name' => 'Sobrenome',
+    'name' => 'Nome completo',
+    'message' => 'Mensagem',
+
 
 ];

@@ -7,6 +7,7 @@ return [
     'home' => 'Início',
     'projects' => 'Portfólio',
     'categories' => 'Categorias',
+    'blog' => 'Blog',
     'contact' => 'Contato',
     'my_account' => 'Minha conta'
 

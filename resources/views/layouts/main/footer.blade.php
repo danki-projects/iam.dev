@@ -1,4 +1,4 @@
-<footer class="container fixed-bottom">
+<footer class="container">
     <div class="row">
         <div class="col-12">
             <p class="text-center text-light">&copy;
