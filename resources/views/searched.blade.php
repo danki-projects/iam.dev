@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1 class="h5">Resultados da pesquisa <strong>{{ $searched }}</strong></h1>
+    <h1 class="h5">{{ $researches->count() }} Resultados da pesquisa <strong>{{ $searched }}</strong></h1>
     <div class="row mt-3">
         @forelse ($researches as $research)
             <div class="col-12 my-1">
