@@ -14,6 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/search/{params?}', 'HomeController@search')->name('search');
 
 Route::get('/projects', 'ProjectController@index')->name('project');
 Route::get('/projects/{project_slug}', 'ProjectController@show')->name('project.show');

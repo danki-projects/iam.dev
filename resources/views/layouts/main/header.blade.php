@@ -40,8 +40,9 @@
                         </a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0" action="{{ route('search') }}">
                     <input class="form-control form-control-sm mr-sm-2 rounded-0" type="search"
+                           name="params"
                            placeholder="{{ __('inputs.placeholder.search') }}"
                            aria-label="Search">
                     <button class="btn btn-sm btn-outline-light rounded-0 my-2 my-sm-0" type="submit">

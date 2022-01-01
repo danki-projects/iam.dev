@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\repositories\PostsRepository;
 use App\repositories\ProjectsRepository;
+use App\repositories\ResearchRepository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,6 +27,15 @@ class HomeController extends Controller
         return view('home', [
             'projects' => $projects,
             'posts' => $posts
+        ]);
+    }
+
+    public function search(Request $request, ResearchRepository $researchRepository)
+    {
+        $researches = $researchRepository->find($request->get('params'));
+        return view('searched', [
+            'searched' => $request->get('params'),
+            'researches' => $researches
         ]);
     }
 
