@@ -12,6 +12,7 @@ use Illuminate\Notifications\Notifiable;
  * @property string $first_name
  * @property string $last_name
  * @property string $type
+ * @property string $cover
  * @property string $full_name
  * @package App
  */
@@ -59,5 +60,10 @@ class User extends Authenticatable
     public function getFullNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
+    }
+
+    public function getCoverAttribute()
+    {
+        return asset('images/avatar.jpeg');
     }
 }

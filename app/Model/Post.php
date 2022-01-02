@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
+/**
+ * Class Post
+ * @property Comment $comments
+ * @package App\Model
+ */
 class Post extends Model
 {
     use SoftDeletes;
@@ -39,6 +44,11 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'item');
     }
 
     public function setNameAttribute($value)

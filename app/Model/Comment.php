@@ -5,6 +5,9 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @method create(array $array)
+ */
 class Comment extends Model
 {
      use SoftDeletes;
@@ -27,7 +30,7 @@ class Comment extends Model
 
     public function user()
     {
-        $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function item(): \Illuminate\Database\Eloquent\Relations\MorphTo

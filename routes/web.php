@@ -27,5 +27,6 @@ Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::group(['prefix' => 'blog'], function () {
     Route::get('/{category_slug}', 'CategoryController@index')->name('blog.categories');
     Route::get('/{category_slug}/{post_slug}', 'PostController@index')->name('blog.post');
+    Route::post('/{category_slug}/{post_slug}', 'PostController@comment')->name('blog.comment');
 });
 
