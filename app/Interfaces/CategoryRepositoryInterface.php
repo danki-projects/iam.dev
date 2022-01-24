@@ -13,5 +13,5 @@ interface CategoryRepositoryInterface
 {
     public function getBySlug(string $slug): ?Category;
 
-    public function getCategoriesToMenu(): Collection;
+    public function getCategoriesToMenu(): ?Collection;
 }
