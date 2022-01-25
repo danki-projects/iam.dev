@@ -19,13 +19,11 @@
 
     <title>@yield('title', env('APP_NAME', 'Laravel'))</title>
 </head>
-<body class="bg-dark">
+<body>
 
-<div class="full-height">
+<div class="min-vh-100">
     @include('layouts.main.header')
-    <div class="container my-5 bg-secondary text-light rounded shadow py-5 px-4 mb-5">
-        @yield('content')
-    </div>
+    @yield('content')
     @include('layouts.main.footer')
 </div>
 

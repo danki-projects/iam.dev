@@ -1,5 +1,11 @@
+$theme-colors: (
+        "black": #1c252c,
+        "purple": #a68cf1,
+        "light-orange": #feca7c
+);
+
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,700;0,900;1,400&display=swap');
 
 $breadcrumb-divider: quote(">");
 // Variables
@@ -8,9 +14,8 @@ $breadcrumb-divider: quote(">");
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-
-.full-height {
-  height: 100vh;
+.h-400size {
+  height: 400px;
 }
 
 .card-height {

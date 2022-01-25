@@ -1,14 +1,14 @@
 @if (Route::has('login'))
-    <header class="border-bottom border-secondary shadow">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark container">
+    <header class="bg-purple">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-purple container">
             <a class="navbar-brand font-weight-bold" href="{{ route('home') }}">{{ env('APP_NAME', 'Laravel') }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse text-uppercase" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item {{ isActive('home') }}">
                         <a class="nav-link" href="{{ route('home') }}">
                             {{ __('app.home') }}
@@ -25,7 +25,7 @@
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ __('app.blog') }}
                             </a>
-                            <div class="dropdown-menu py-0 rounded-0" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @foreach($menu as $item)
                                     <a class="dropdown-item" href="{{ route('blog.categories', $item->slug) }}">
                                         {{ $item->name }}
@@ -40,27 +40,19 @@
                         </a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" action="{{ route('search') }}">
-                    <input class="form-control form-control-sm mr-sm-2 rounded-0" type="search"
-                           name="params"
-                           placeholder="{{ __('inputs.placeholder.search') }}"
-                           aria-label="Search">
-                    <button class="btn btn-sm btn-outline-light rounded-0 my-2 my-sm-0" type="submit">
-                        {{ __('inputs.button_search') }}
-                    </button>
-                </form>
-                <ul class="ml-5 navbar-nav">
+
+                <ul class="navbar-nav ml-5">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="{{ asset('images/avatar.jpeg') }}" alt="" class="rounded-circle" width="35">
+                            <img src="{{ asset('images/avatar.jpeg') }}" alt="" class="rounded-circle" width="30">
                             @auth
                                 <span class="ml-3">{{ Auth::user()->first_name }}</span>
                             @else
                                 <span class="ml-3">{{ __('app.my_account') }}</span>
                             @endauth
                         </a>
-                        <div class="dropdown-menu rounded-0 py-0" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @auth
                                 @if (Auth::user()->type === \App\Model\User::Admin)
                                     <a class="dropdown-item" href="{!! route('dashboard') !!}">Dashboard</a>
