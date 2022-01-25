@@ -45,9 +45,9 @@
         <div class="col-12 mt-2 mb-4">
             <div class="text-center">
                 Faça o
-                <a class="btn btn-primary btn-sm" href="{{ route('login') }}">Login</a>
+                <a class="btn btn-purple btn-sm text-white" href="{{ route('login') }}">Login</a>
                 ou
-                <a href="{{ route('register') }}" class="btn btn-primary btn-sm">cadastre-se</a> para comentar.
+                <a href="{{ route('register') }}" class="btn btn-light btn-sm">cadastre-se</a> para comentar.
             </div>
         </div>
     @endif

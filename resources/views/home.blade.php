@@ -9,11 +9,11 @@
                     <div class="col-12 col-md-4 d-inline-flex justify-content-center justify-content-md-start">
                         <div class="pr-4 mr-4 border-right border-light-gray">
                             <span class="d-block text-light-gray small">Projetos</span>
-                            <span class="font-weight-bold">0.0056</span>
+                            <span class="font-weight-bold">{{ str_pad($projectCount, 5, '0', STR_PAD_LEFT) }}</span>
                         </div>
                         <div class="pr-4 mr-2 border-right border-light-gray">
                             <span class="d-block text-light-gray small">Posts</span>
-                            <span class="font-weight-bold">0.0412</span>
+                            <span class="font-weight-bold">{{ str_pad($postCount, 5, '0', STR_PAD_LEFT) }}</span>
                         </div>
                     </div>
                     <div class="col-12 col-md-8">
@@ -41,26 +41,16 @@
             </h1>
             <div class="w-75 ml-auto mr-auto">
                 <p class="text-center text-light-gray">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam at atque beatae cupiditate error est excepturi facere laborum magnam minus nostrum perferendis quo rem sapiente sunt ut, vitae voluptatem.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam at atque beatae cupiditate
+                    error est excepturi facere laborum magnam minus nostrum perferendis quo rem sapiente sunt ut, vitae
+                    voluptatem.
                 </p>
             </div>
             <div class="row">
                 @foreach($projects as $project)
                     <div class="col-12 my-3">
                         <div class="row">
-                            @foreach($project->images()->limit(3)->get() as $image)
-                                <div class="col-12 col-md">
-                                    <img src="{{ $image->slug }}" alt="{{ $image->label }}"
-                                         class="img-fluid img-thumbnail m-1">
-                                </div>
-                            @endforeach
-                            <div class="col-12 col-md-5 col">
-                                <h2 class="text-right h5 font-weight-bolder text-dark">Projeto - {{ $project->name }}</h2>
-                                <p class="">{{ $project->description }}</p>
-                                <a href="{{ route('project.show', $project->slug) }}" class="btn btn-purple btn-sm text-white text-uppercase">
-                                    <small>{{ __('inputs.button_more_detail') }}</small>
-                                </a>
-                            </div>
+                            @include('partials.project-box', ['project' => $project])
                         </div>
                     </div>
                 @endforeach
@@ -68,13 +58,23 @@
         </div>
     </div>
 
-    <div class="bg-black py-5" style="background-image: url({{ asset('images/bg-top.png') }});">
+    <div class="bg-black py-5"
+         style="
+                 background-image: url({{ asset('images/bg-top.png') }});
+                 background-repeat: no-repeat;
+                 "
+    >
         <div class="container">
             <div class="content">
                 <div class="row">
                     <div class="col-12">
                         @if ($posts->count())
-                            <h2 class="h4 mb-3">Postagens mais vistas</h2>
+                            <h2 class="h2 mb-3 text-light-gray font-weight-bolder">Postagens mais vistas</h2>
+                            <p class="mb-3 mb-md-5 text-white">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem dolorem esse
+                                expedita harum, molestiae quia repudiandae. Blanditiis deleniti dicta distinctio facere
+                                fuga incidunt ipsa labore numquam odit voluptatem? Nulla.
+                            </p>
                             <div class="row">
                                 @foreach ($posts as $post)
                                     <div class="col-12 col-md-3">

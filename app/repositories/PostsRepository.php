@@ -32,4 +32,10 @@ class PostsRepository implements PostRepositoryInterface
             ->limit($quantity)
             ->get();
     }
+
+
+    public function count()
+    {
+        return Post::count();
+    }
 }

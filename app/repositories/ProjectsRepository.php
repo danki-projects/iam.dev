@@ -37,4 +37,9 @@ class ProjectsRepository implements ProjectRepositoryInterface
     {
         return Project::active()->where('slug', $slug)->first();
     }
+
+    public function count()
+    {
+        return Project::active()->count();
+    }
 }

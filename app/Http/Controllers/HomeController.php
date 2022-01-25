@@ -21,12 +21,11 @@ class HomeController extends Controller
 
     public function index(ProjectsRepository $projectsRepository, PostsRepository $postsRepository)
     {
-        $projects = $projectsRepository->getLatestActive();
-        $posts = $postsRepository->getByViews();
-
-        return view('home', [
-            'projects' => $projects,
-            'posts' => $posts
+         return view('home', [
+            'projects' => $projectsRepository->getLatestActive(),
+            'posts' => $postsRepository->getByViews(),
+            'projectCount' => $projectsRepository->count(),
+            'postCount' => $postsRepository->count(),
         ]);
     }
 
