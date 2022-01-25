@@ -1,6 +1,6 @@
 @if (Route::has('login'))
     <header class="bg-purple">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-purple container">
+        <nav class="navbar navbar-expand-lg navbar-dark  container">
             <a class="navbar-brand font-weight-bold" href="{{ route('home') }}">{{ env('APP_NAME', 'Laravel') }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,7 @@
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ __('app.blog') }}
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
                                 @foreach($menu as $item)
                                     <a class="dropdown-item" href="{{ route('blog.categories', $item->slug) }}">
                                         {{ $item->name }}
@@ -41,7 +41,7 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav ml-5">
+                <ul class="navbar-nav ml-0 ml-lg-5">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,7 +52,7 @@
                                 <span class="ml-3">{{ __('app.my_account') }}</span>
                             @endauth
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
                             @auth
                                 @if (Auth::user()->type === \App\Model\User::Admin)
                                     <a class="dropdown-item" href="{!! route('dashboard') !!}">Dashboard</a>
@@ -73,9 +73,7 @@
                                 @endif
                             @endauth
                         </div>
-
                     </li>
-
                 </ul>
             </div>
         </nav>

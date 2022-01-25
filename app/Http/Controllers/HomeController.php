@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->only('dashboard');
     }
 
     public function index(ProjectsRepository $projectsRepository, PostsRepository $postsRepository)

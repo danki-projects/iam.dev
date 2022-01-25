@@ -1,13 +1,13 @@
 $theme-colors: (
         "black": #1c252c,
         "purple": #a68cf1,
-        "light-orange": #feca7c
+        "light-orange": #feca7c,
+        "light-gray": #9f9f9f
 );
 
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,700;0,900;1,400&display=swap');
 
-$breadcrumb-divider: quote(">");
 // Variables
 @import 'variables';
 
@@ -31,4 +31,16 @@ $breadcrumb-divider: quote(">");
   width: 300px;
   max-width: 100%;
   z-index: 9999;
+}
+
+.rounded-top-large{
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.margin-negative {
+  margin-top: -200px;
+  @media (max-width: 770px) {
+    margin-top: -100px;
+  }
 }
