@@ -24,7 +24,7 @@
                                    name="params"
                                    placeholder="{{ __('inputs.placeholder.search') }}"
                                    aria-label="Search">
-                            <button class="btn btn-lg btn-dark ml-0 ml-md-2" type="button">
+                            <button class="btn btn-lg btn-dark ml-0 ml-md-2" type="submit">
                                 {{ __('inputs.button_search') }}
                             </button>
                         </form>
